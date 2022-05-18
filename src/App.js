@@ -1,7 +1,11 @@
 import './App.css';
-import JSONDATA from "./MOCK_DATA.json";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+// import JSONDATA from "./MOCK_DATA.json";
 import { useState } from 'react';
-import One from './components/one/One';
+
+import Navbar from './navbar';
+import Signup from './pages/signup';
+import  Home  from './pages/home';
 
 function App() {
   const [ searchTerm , setSearchTerm] = useState("");
@@ -29,7 +33,20 @@ function App() {
       })}
        </div>
    */
-      <One />
+  <Router className='"app'>
+    <header>
+       <Navbar/>
+    </header>
+   <body>
+     <Routes>
+         <Route path="/" element={ <Home/>} exact></Route>
+         <Route path="/signup" element={ <Signup/>} exact></Route>
+     </Routes>
+   </body>
+    
+  </Router>
+  
+      
     
          
   );

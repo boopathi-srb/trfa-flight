@@ -1,12 +1,23 @@
 body {
-  margin: 0;
+  margin: 2px;
   padding: 0;
-  background-color: #b2e0df;
+  background-color:white;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-
+header{
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --font-size-1:2rem;
+  --font-size-2:1.5rem;
+  --font-size-3:1rem;
+  --font-size-4:0.5rem;
+  --background-color:white;
+}
 .app{
   display: flex;
   justify-content: center;
@@ -30,13 +41,13 @@ body {
     align-items: center;
     cursor: pointer;
     transition: 0.8s;
-    /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
       inset -7px -7px 10px 0px rgba(0,0,0,.1),
      7px 7px 20px 0px rgba(0,0,0,.1),
      4px 4px 5px 0px rgba(0,0,0,.1);
      text-shadow:  0px 0px 6px rgba(255,255,255,.3),
                 -4px -4px 6px rgba(116, 125, 136, .2);
-    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
       -4px -4px 6px 0 rgba(116, 125, 136, .2),
       inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
@@ -92,4 +103,176 @@ p {
 
 .app input:hover {
   animation: hoverShake 0.15s linear 3;
+}
+
+
+/*------Navbar-------*/
+
+.topbar{
+  display: flex;
+  background: var(--background-color);
+  width: 96vw;
+  height: 10vh;
+  margin-top: 1.5vh;
+  margin-left: 1.5vw;
+  text-align: right;
+  align-items: right;
+  justify-content: space-around;
+  position: fixed;
+  border-radius: 1.5rem ;
+  box-shadow: 0px 0px 10px #545454;
+  overflow: hidden;
+}
+.logo_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
+  top: 50%;
+  width: fit-content;
+}
+.logo_wrapper>img{
+  width: 60px;
+  align-items: left;
+  justify-content: left;
+  margin-left: 3rem;
+}
+.rightside{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+.topbar_links{
+  display: flex;
+  gap: 2rem;
+  margin-right: 2rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.topbar_links>a{
+  color: #545454;
+  text-decoration: none;
+  font-weight: 600;
+}
+.toggle_button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.5rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  border-radius: 5px;
+  border: none;
+  display: none;
+}
+.toggle_button_label>p{
+  visibility: collapse;
+}
+
+@media only screen and (max-width:768px){
+  .topbar{
+    overflow: visible;
+    margin-left: 2vw;
+  }
+  .logo_wrapper>img{
+    width: 45px;
+    margin-left: 1.5rem;
+    z-index: 999;
+  }
+  .topbar_links>a {
+    display:flex;
+    justify-content: space-between;
+    margin: 1rem ;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.2em;
+    text-transform: uppercase;
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 300ms ease-in-out;
+  }
+  .close{
+    transform: scale(1,0);
+    transition: transform 300ms ease-in-out;
+  }
+  .topbar_links{
+    position: absolute;
+    right:0%;
+    top: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: auto;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--background-color);
+    backdrop-filter: blur(15px);
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+  } 
+ 
+  .toggle_button:checked ~ nav{
+    transform: scale(1,1);
+    z-index: 90;
+  }
+  .toggle_button:not(:checked) ~ nav{
+    transform: scale(1,0);
+    z-index: 90;
+  }
+  .toggle_button_label{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    height: 100% ;
+    display: flex;
+    align-items: center;
+  }
+  .toggle_button_label>p{
+    visibility: collapse;
+  }
+  .toggle_button_label span,
+  .toggle_button_label span::after,
+  .toggle_button_label span::before{
+    display: block;
+    background:#545454;
+    width: 1.5em;
+    height: 0.2em;
+    border-radius: 2px;
+    position: relative;
+    
+  }
+  .toggle_button_label span::after,
+  .toggle_button_label span::before{
+    content: " ";
+    position: absolute;
+  }
+  .toggle_button_label span::before{
+    bottom: 7px;
+  }
+  .toggle_button_label span::after{
+    top: 7px;
+  }
+  .toggle_button:checked ~  .toggle_button_label span{
+    visibility: hidden;
+    animation: hamburgerX 500ms ease-in ;
+  }
+  .toggle_button:checked ~  .toggle_button_label p{
+    visibility: visible;
+    color: #545454;
+    position: absolute;
+    top: -22%;
+    left: 30%;
+    font-size: 1.5em;
+    font-weight: 600;
+    animation: hamburgerX 500ms ease-in;
+    z-index: 98;
+  }
 }
