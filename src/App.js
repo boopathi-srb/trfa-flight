@@ -1,12 +1,13 @@
 import './App.css';
 import JSONDATA from "./MOCK_DATA.json";
 import { useState } from 'react';
+import One from './components/one/One';
 
 function App() {
   const [ searchTerm , setSearchTerm] = useState("");
   return ( 
-    <div className="app">
-      <input
+   /* <div className="app">
+     <input
       type="text" 
       placeholder="Search..." 
       onChange={ (event) => {
@@ -26,7 +27,10 @@ function App() {
             </div>
           );
       })}
-    </div>
+       </div>
+   */
+      <One />
+    
          
   );
 }
