@@ -1,16 +1,17 @@
-body {
-  margin: 2px;
-  padding: 0;
-  background-color:white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 header{
   margin: 0;
   padding: 0;
 }
+body {
+  margin: 0;
+  padding: 0;
+  background-color:white;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 :root{
   --font-size-1:2rem;
   --font-size-2:1.5rem;
@@ -110,7 +111,7 @@ p {
 
 .topbar{
   display: flex;
-  background: var(--background-color);
+  /* background: var(--background-color); */
   width: 96vw;
   height: 10vh;
   margin-top: 1.5vh;
@@ -120,7 +121,7 @@ p {
   justify-content: space-around;
   position: fixed;
   border-radius: 1.5rem ;
-  box-shadow: 0px 0px 10px #545454;
+  box-shadow: 0px 0px 10px black;
   overflow: hidden;
 }
 .logo_wrapper{
@@ -151,7 +152,7 @@ p {
   justify-content: space-evenly;
 }
 .topbar_links>a{
-  color: #545454;
+  color: black;
   text-decoration: none;
   font-weight: 600;
 }
@@ -172,7 +173,25 @@ p {
   visibility: collapse;
 }
 
+
+/*-----Home page-----*/
+
+.home{
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;
+}
+.banner>img{
+  width: 100vw;
+  
+}
+
 @media only screen and (max-width:768px){
+  
+  
+  
+  /*---topbar---*/
+  
   .topbar{
     overflow: visible;
     margin-left: 2vw;
@@ -213,8 +232,9 @@ p {
     margin: auto;
     gap: 1rem;
     padding: 1rem;
-    background: var(--background-color);
-    backdrop-filter: blur(15px);
+    /* background: var(--background-color); */
+    /* backdrop-filter: blur(15px); */
+    box-shadow: 0px 0px 10px black;
     border-radius: 0rem 0rem 1.5rem 1.5rem;
   } 
  
@@ -242,7 +262,7 @@ p {
   .toggle_button_label span::after,
   .toggle_button_label span::before{
     display: block;
-    background:#545454;
+    background:black;
     width: 1.5em;
     height: 0.2em;
     border-radius: 2px;
@@ -266,13 +286,23 @@ p {
   }
   .toggle_button:checked ~  .toggle_button_label p{
     visibility: visible;
-    color: #545454;
+    color: black;
     position: absolute;
-    top: -22%;
-    left: 30%;
+    top: -2%;
+    left: 0%;
     font-size: 1.5em;
     font-weight: 600;
     animation: hamburgerX 500ms ease-in;
     z-index: 98;
   }
+  .toggle_button:checked ~ .topbar{
+    box-shadow: none;
+  }
+
+
+  /*---Home---*/
+  .banner>img{
+  height: 40vh;
+   }
 }
+
