@@ -8,7 +8,10 @@ function Home() {
       <div className='banner'>
          <img src={Banner} alt="banner" />
       </div>
-      <One/>
+      <div className='one'>
+       <One/>
+      </div>
+     
     </div>
   )
 }

@@ -21,7 +21,7 @@ export default function Checkboxes() {
     <div>
     <Box>
       <TextField  color="secondary" focused placeholder="Origin" ></TextField>  
-       </Box>
+    </Box>
     <Box>   
       <TextField  color="secondary" focused placeholder="Destination" ></TextField>     
     </Box>
