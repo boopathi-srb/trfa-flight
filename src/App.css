@@ -20,6 +20,7 @@ header{
   --font-size-3:1rem;
   --font-size-4:0.5rem;
   --background-color:white;
+  --webkit-backdrop-filter: blur(50px);
 }
 .app{
   display: flex;
@@ -129,20 +130,17 @@ p {
 
 .topbar{
   display: flex;
-  /* background: var(--background-color); */
   width: 96vw;
   height: 10vh;
   margin-top: 1.5vh;
   margin-left: 1.5vw;
-  text-align: right;
-  align-items: right;
   justify-content: space-around;
   position: fixed;
   border-radius: 1.5rem ;
   box-shadow: 0px 0px 10px black;
-  backdrop-filter: blur(5px);
-  overflow: hidden;
-  z-index: 999;
+  backdrop-filter: var(--webkit-backdrop-filter);
+  overflow-y: hidden;
+  z-index: 9;
 }
 .logo_wrapper{
   display: flex;
@@ -156,20 +154,22 @@ p {
   width: 60px;
   align-items: left;
   justify-content: left;
-  margin-left: 3rem;
+}
+.brand-name{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  
 }
 .rightside{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-right: 30px;
 }
 .topbar_links{
   display: flex;
   gap: 2rem;
   margin-right: 2rem;
-  align-items: center;
-  justify-content: space-evenly;
 }
 .topbar_links>a{
   color: black;
@@ -189,9 +189,13 @@ p {
   border: none;
   display: none;
 }
+.toggle_button_label{
+  width: 0;
+}
 .toggle_button_label>p{
   visibility: collapse;
 }
+
 
 
 /*-----Home page-----*/
@@ -226,6 +230,31 @@ p {
   align-items: left;
   z-index: 9;
 }
+.options-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 3rem;
+  align-items: center;
+  position: absolute;
+  top: 50vh;
+}
+.options{
+  border-radius: 2rem ;
+  box-shadow: 0px 0px 5px black;
+  backdrop-filter: blur(5px);
+  padding:1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+.options>img{
+   width: 80px;
+}
+
 
 @media only screen and (max-width:1050px){
   .greetings{
@@ -239,21 +268,27 @@ p {
   /*---topbar---*/
   
   .topbar{
-    overflow: visible;
-    margin-left: 2vw;
+    overflow-y: visible;
+    margin-left: 4vw;
+    width: 92vw;
   }
   .logo_wrapper>img{
-    width: 45px;
-    margin-left: 1.5rem;
+    width: 44px;
     
   }
   .logo_wrapper{
     font-size: 1rem;
-    z-index: 999;
   }
-  .logo_wrapper>h1{
+  .brand-name{
+    align-items: center;
+  }
+  .brand-name>h1{
     font-size: 1rem;
+    width: 10ch;
+    margin-right: 4ch;
+    text-align: center;
   }
+  
   .topbar_links>a {
     display:flex;
     justify-content: space-between;
@@ -261,49 +296,57 @@ p {
     text-decoration: none;
     font-weight: 600;
     padding: 0.2em;
-    text-transform: uppercase;
   }
   nav {
     position: absolute;
-    top: 0;
+    top: 13vh;
     left: 0;
-    transform: scale(1,0);
-    transform-origin: top;
-    transition: transform 300ms ease-in-out;
-  }
-  .close{
-    transform: scale(1,0);
-    transition: transform 300ms ease-in-out;
-  }
-  .topbar_links{
-    position: absolute;
-    right:0%;
-    top: 60%;
+    margin: auto;
+    width: 86vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin: auto;
-    gap: 1rem;
-    padding: 1rem;
-    /* background: var(--background-color); */
-    backdrop-filter: blur(100px);
-    box-shadow: 0px 0px 10px black;
-    border-radius: 0rem 0rem 1.5rem 1.5rem;
-  } 
+    justify-content:flex-end;
+    height: max-content;
+    border-radius: 2rem;
+    padding: 10px; 
+    transform: scale(0,0);
+    transform-origin:top;
+    transition: transform 300ms ease-in-out;
+    z-index: 100;
+    
+  }
  
+  .close{
+    transform: scale(0,0);
+    transition: transform 300ms ease-in-out;
+    
+  }
+  .topbar_links{
+    width: 86vw;
+    backdrop-filter: blur(100px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: none;
+    
+    box-shadow: 0px 0px 5px black;
+    z-index: 99;
+  } 
+  
   .toggle_button:checked ~ nav{
     transform: scale(1,1);
-    z-index: 999;
+    z-index: 90;
   }
   .toggle_button:not(:checked) ~ nav{
-    transform: scale(1,0);
-    z-index: 999;
+    transform: scale(0,0);
+    z-index: 90;
   }
   .toggle_button_label{
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 20px;
+    width: auto;
     height: 100% ;
     display: flex;
     align-items: center;
@@ -322,15 +365,15 @@ p {
     position: relative;
     
   }
-  .toggle_button_label span::after,
+
   .toggle_button_label span::before{
     content: " ";
     position: absolute;
-  }
-  .toggle_button_label span::before{
     bottom: 7px;
   }
   .toggle_button_label span::after{
+    content: " ";
+    position: absolute;
     top: 7px;
   }
   .toggle_button:checked ~  .toggle_button_label span{
@@ -341,15 +384,12 @@ p {
     visibility: visible;
     color: black;
     position: absolute;
-    top: -2%;
-    left: 0%;
+    top: 06%;
+    left: -80%;
     font-size: 1.5em;
     font-weight: 600;
     animation: hamburgerX 500ms ease-in;
-    z-index: 999;
-  }
-  .toggle_button:checked ~ .topbar{
-    box-shadow: none;
+    /* z-index: 999; */
   }
 
 
@@ -357,10 +397,12 @@ p {
    .one{
      top: 40vh;
      width: 70vw;
+     z-index: 0;
    }
    .greetings{
      font-size: 1.5rem;
      padding: 1rem;
+     z-index: 1;
    }
 }
 
