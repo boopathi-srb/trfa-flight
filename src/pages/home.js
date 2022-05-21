@@ -1,5 +1,5 @@
 import React from 'react'
-import One from '../components/one/One'
+import One from '../components/One'
 import Banner from '../Assets/Travel Fika banner.png'
 import '../../src/App.css'
 function Home() {
