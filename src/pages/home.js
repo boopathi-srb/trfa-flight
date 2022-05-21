@@ -1,5 +1,5 @@
 import React from 'react'
-import One from '../components/One'
+// import One from '../components/One'
 import Banner from '../Assets/Travel Fika banner.png'
 import plane from '../Assets/plane.svg'
 import hotel from '../Assets/hotel.svg'
