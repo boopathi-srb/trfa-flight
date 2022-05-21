@@ -8,6 +8,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 99;
+}
+header{
+  z-index: 999;
 }
 
 :root{
@@ -27,7 +31,7 @@ body {
 
 .app input {
   margin-top: 20px;
-  width: 300px;
+  /* width: 300px; */
   height: 40px;
   font-size: 16px;
   padding-left: 10px;
@@ -120,7 +124,9 @@ p {
   position: fixed;
   border-radius: 1.5rem ;
   box-shadow: 0px 0px 10px black;
+  backdrop-filter: blur(5px);
   overflow: hidden;
+  z-index: 999;
 }
 .logo_wrapper{
   display: flex;
@@ -184,7 +190,8 @@ p {
 }
 .banner>img{
   width: 100vw;
-  
+  height:60vh ;
+  opacity: 0.7;
 }
 .one{
   width: 80vw;
@@ -194,6 +201,14 @@ p {
   position: absolute;
   padding: 2rem;
   top: 40vh;
+}
+.greetings{
+  position: absolute;
+  top: 10vh;
+  font-size: 3rem;
+  justify-content: left;
+  align-items: left;
+  z-index: 9;
 }
 
 @media only screen and (max-width:768px){
@@ -209,7 +224,14 @@ p {
   .logo_wrapper>img{
     width: 45px;
     margin-left: 1.5rem;
+    
+  }
+  .logo_wrapper{
+    font-size: 1rem;
     z-index: 999;
+  }
+  .logo_wrapper>h1{
+    font-size: 1rem;
   }
   .topbar_links>a {
     display:flex;
@@ -243,18 +265,18 @@ p {
     gap: 1rem;
     padding: 1rem;
     /* background: var(--background-color); */
-    /* backdrop-filter: blur(15px); */
+    backdrop-filter: blur(100px);
     box-shadow: 0px 0px 10px black;
     border-radius: 0rem 0rem 1.5rem 1.5rem;
   } 
  
   .toggle_button:checked ~ nav{
     transform: scale(1,1);
-    z-index: 90;
+    z-index: 999;
   }
   .toggle_button:not(:checked) ~ nav{
     transform: scale(1,0);
-    z-index: 90;
+    z-index: 999;
   }
   .toggle_button_label{
     position: absolute;
@@ -303,7 +325,7 @@ p {
     font-size: 1.5em;
     font-weight: 600;
     animation: hamburgerX 500ms ease-in;
-    z-index: 98;
+    z-index: 999;
   }
   .toggle_button:checked ~ .topbar{
     box-shadow: none;
@@ -312,7 +334,15 @@ p {
 
   /*---Home---*/
   .banner>img{
-  height: 40vh;
+  /* height: 40vh; */
+   }
+   .one{
+     top: 40vh;
+     width: 70vw;
+   }
+   .greetings{
+     font-size: 1.5rem;
+     padding: 1rem;
    }
 }
 

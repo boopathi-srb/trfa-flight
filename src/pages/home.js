@@ -8,7 +8,11 @@ function Home() {
       <div className='banner'>
          <img src={Banner} alt="banner" />
       </div>
+      <div className='greetings'>
+      <h2>Let's book your next trip! </h2>
+      </div>
       <div className='one'>
+       
        <One/>
       </div>
      

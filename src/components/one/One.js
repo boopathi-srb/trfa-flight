@@ -14,7 +14,7 @@ export default function Checkboxes() {
   <div>
     <div>
       <Checkbox {...label} defaultChecked />
-      <Checkbox {...label} />
+      <Checkbox {...label} label="Flights"/>
       <Checkbox {...label} />
       <Checkbox {...label} />
     </div>
