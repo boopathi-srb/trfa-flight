@@ -1,14 +1,15 @@
 import React from 'react'
-// import One from '../components/One'
-import Banner from '../Assets/Travel Fika banner.png'
-import plane from '../Assets/plane.svg'
-import hotel from '../Assets/hotel.svg'
-import cab from '../Assets/taxi.svg'
-import '../../src/App.css'
-function Home() {
+import './banner.css'
+import Banner from '../../Assets/Travel Fika banner.png'
+import plane from '../../Assets/plane.svg'
+import hotel from '../../Assets/hotel.svg'
+import cab from '../../Assets/taxi.svg'
+
+
+function BannerPage() {
   return (
-    <div className='home'>
-      <div className='banner'>
+    <div>
+       <div className='banner'>
          <img src={Banner} alt="banner" />
       </div>
       <div className='greetings'>
@@ -29,13 +30,8 @@ function Home() {
         </div>
 
       </div>
-      {/* <div className='one'>
-       
-       <One/>
-      </div> */}
-     
     </div>
   )
 }
 
-export default Home
+export default BannerPage

@@ -3,9 +3,9 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 // import JSONDATA from "./MOCK_DATA.json";
 import { useState } from 'react';
 
-import Navbar from './navbar';
-import Signup from './pages/signup';
-import  Home  from './pages/home';
+import Navbar from './components/navbar/navbar';
+import Signup from './pages/signup/signup';
+import  Home  from './pages/home/home';
 
 function App() {
   const [ searchTerm , setSearchTerm] = useState("");

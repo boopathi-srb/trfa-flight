@@ -1,0 +1,197 @@
+.topbar{
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  justify-content: space-around;
+  position: fixed;
+  overflow-y: hidden;
+  z-index: 9;
+}
+.logo_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
+  top: 50%;
+  width: 30vw;
+}
+.logo_wrapper>img{
+  width: 60px;
+  align-items: left;
+  justify-content: left;
+}
+.brand-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  
+}
+.rightside{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30vw;
+}
+.topbar_links{
+  display: flex;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+.topbar_links>a{
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+.toggle_button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.5rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  border-radius: 5px;
+  border: none;
+  display: none;
+}
+.toggle_button_label{
+  width: 0;
+}
+.toggle_button_label>p{
+  visibility: collapse;
+}
+
+
+@media only screen and (max-width:768px){
+  
+  
+  
+  /*---topbar---*/
+  
+  .topbar{
+    overflow-y: visible;
+    margin-left: 4vw;
+    width: 92vw;
+  }
+  .logo_wrapper>img{
+    width: 44px;
+    
+  }
+  .logo_wrapper{
+    font-size: 1rem;
+  }
+  .brand-name{
+    align-items: center;
+  }
+  .brand-name>h1{
+    font-size: 1rem;
+    width: 10ch;
+    margin-right: 4ch;
+    text-align: center;
+  }
+  
+  .topbar_links>a {
+    display:flex;
+    justify-content: space-between;
+    margin: 1rem ;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.2em;
+  }
+  nav {
+    position: absolute;
+    top: 13vh;
+    left: 0;
+    margin: auto;
+    width: 86vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content:flex-end;
+    height: max-content;
+    border-radius: 2rem;
+    padding: 10px; 
+    transform: scale(0,0);
+    transform-origin:top;
+    transition: transform 300ms ease-in-out;
+    z-index: 100;
+    
+  }
+ 
+  .close{
+    transform: scale(0,0);
+    transition: transform 300ms ease-in-out;
+    
+  }
+  .topbar_links{
+    width: 86vw;
+    backdrop-filter: blur(100px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: none;
+    
+    box-shadow: 0px 0px 5px black;
+    z-index: 99;
+  } 
+  
+  .toggle_button:checked ~ nav{
+    transform: scale(1,1);
+    z-index: 90;
+  }
+  .toggle_button:not(:checked) ~ nav{
+    transform: scale(0,0);
+    z-index: 90;
+  }
+  .toggle_button_label{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100% ;
+    display: flex;
+    align-items: center;
+  }
+  .toggle_button_label>p{
+    visibility: collapse;
+  }
+  .toggle_button_label span,
+  .toggle_button_label span::after,
+  .toggle_button_label span::before{
+    display: block;
+    background:black;
+    width: 1.5em;
+    height: 0.2em;
+    border-radius: 2px;
+    position: relative;
+    
+  }
+
+  .toggle_button_label span::before{
+    content: " ";
+    position: absolute;
+    bottom: 7px;
+  }
+  .toggle_button_label span::after{
+    content: " ";
+    position: absolute;
+    top: 7px;
+  }
+  .toggle_button:checked ~  .toggle_button_label span{
+    visibility: hidden;
+    animation: hamburgerX 500ms ease-in ;
+  }
+  .toggle_button:checked ~  .toggle_button_label p{
+    visibility: visible;
+    color: black;
+    position: absolute;
+    top: 06%;
+    left: -80%;
+    font-size: 1.5em;
+    font-weight: 600;
+    animation: hamburgerX 500ms ease-in;
+    /* z-index: 999; */
+  }
+}
